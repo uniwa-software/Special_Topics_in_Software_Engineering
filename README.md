@@ -43,13 +43,13 @@ Web εφαρμογή (server-side ή SPA) με React, Vue.js, ή Angular.
 **Οδηγίες Εγκατάστασης**
 
 1. Κλώνος του αποθετηρίου:
-`gh repo clone uniwa-software/Special_Topics_in_Software_Engineering`
-2. Εγκατάσταση των εξαρτήσεων και διαμόρφωση της βάσης δεδομένων.
-3. Eκκινήστε τον web server.
+```gh repo clone uniwa-software/Special_Topics_in_Software_Engineering```
+3. Εγκατάσταση των εξαρτήσεων και διαμόρφωση της βάσης δεδομένων.
+4. Eκκινήστε τον web server.
 
 **Δομή του Έργου**
 
-`.
+```
 ├── backend/
 │   ├── src/
 │   ├── controllers/
@@ -61,7 +61,8 @@ Web εφαρμογή (server-side ή SPA) με React, Vue.js, ή Angular.
 │   ├── src/
 │   └── components/
 └── database/
-    └── schema.sql`
+    └── schema.sql
+```
     
 **Εργαλεία Ανάπτυξης**
 
