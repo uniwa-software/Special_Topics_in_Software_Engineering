@@ -97,7 +97,7 @@
 
 ## 📱 Connect with Us
 
-You can connect with the project contributors on LinkedIn:
+Μπορείτε να συνδεθείτε με τους συνεισφέροντες του έργου στο LinkedIn:
 
 - **Νίκος Θωμάς**: [LinkedIn Profile](https://www.linkedin.com/in/nikos-thomas-5687b5263)
 - **Φίλλιπος Παπαγεωργίου**: [LinkedIn Profile](https://www.linkedin.com/in/filipe-papageorgiou-55491b27b/)
