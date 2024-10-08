@@ -1,54 +1,76 @@
 # Special Topics in Software Engineering
 
-**Επισκόπηση Έργου**:
+## 📝 Επισκόπηση Έργου
 
-Αυτή είναι μια τριών επιπέδων εμπορική εφαρμογή που αναπτύχθηκε στο πλαίσιο του μαθήματος Ειδικά Θέματα Τεχνολογίας Λογισμικού του Τμήματος Μηχανικών Πληροφορικής και Υπολογιστών του Πανεπιστημίου Δυτικής Αττικής. Η εφαρμογή επιδεικνύει τις βασικές λειτουργίες CRUD (Δημιουργία, Ανάγνωση, Ενημέρωση, Διαγραφή) και ακολουθεί σύγχρονες αρχές ανάπτυξης λογισμικού με έμφαση στην καθαρή αρχιτεκτονική, τις υπηρεσίες REST και την ενσωμάτωση ORM.
+Αυτή η τριών επιπέδων εμπορική εφαρμογή αναπτύχθηκε στο πλαίσιο του μαθήματος **Ειδικά Θέματα Τεχνολογίας Λογισμικού** του **Τμήματος Μηχανικών Πληροφορικής και Υπολογιστών** του **Πανεπιστημίου Δυτικής Αττικής**. Η εφαρμογή επιδεικνύει βασικές λειτουργίες **CRUD (Create, Read, Update, Delete)** και ακολουθεί σύγχρονες αρχές ανάπτυξης λογισμικού, με έμφαση σε καθαρή αρχιτεκτονική, RESTful υπηρεσίες και ενσωμάτωση ORM.
 
-**Χαρακτηριστικά**
-- Αρχιτεκτονική τριών επιπέδων: Περιλαμβάνει το front-end, business logic και τη βάση δεδομένων.
-- RESTful API για την επικοινωνία μεταξύ του front-end και του back-end.
-- Έλεγχος ταυτότητας χρήστη με δυνατότητα υλοποίησης Role-based Access Control (RBAC).
-- Χρήση ORM για την επικοινωνία με τη βάση δεδομένων.
-- Διαχείριση sprints με τη χρήση εργαλείων όπως Trello ή Jira για ευέλικτη ανάπτυξη.
-- Βασικά αυτοματοποιημένα integration tests για την εξασφάλιση της σωστής λειτουργίας.
+## 🚀 Χαρακτηριστικά
+- **Αρχιτεκτονική Τριών Επιπέδων**: Front-end, Business Logic και Βάση Δεδομένων.
+- **[RESTful API](https://restfulapi.net/)**: Επικοινωνία μεταξύ front-end και back-end.
+- **Role-based Access Control (RBAC)**: Έλεγχος πρόσβασης με βάση ρόλους χρηστών.
+- **[ORM](https://en.wikipedia.org/wiki/Object-relational_mapping)**: Χρήση για αλληλεπίδραση με τη βάση δεδομένων.
+- **Διαχείριση Sprints**: Χρήση του **[Trello](https://trello.com/)** ✔️ για agile ανάπτυξη.
+- **Automated Integration Tests**: Βασικά αυτοματοποιημένα integration tests για έλεγχο λειτουργικότητας.
+- **Responsive Design**: Με τη χρήση του **[Tailwind CSS](https://tailwindcss.com/)** ✔️ για ένα σύγχρονο και ευέλικτο UI.
+- **Front-end με [SvelteKit](https://kit.svelte.dev/)** ✔️: Γρήγορη και αποδοτική ανάπτυξη του front-end με **SvelteKit**.
 
-**Τεχνολογίες
-Η εφαρμογή αναπτύσσεται με τις ακόλουθες τεχνολογίες:**
+## 🛠️ Τεχνολογίες
 
-**Front-end:**
+### Front-end:
+- **Framework**: [SvelteKit](https://kit.svelte.dev/) ✔️
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) ✔️
+- **Άλλες επιλογές**: Server-side ή Single Page Application (SPA) με **[React](https://reactjs.org/)**, **[Vue.js](https://vuejs.org/)**, ή **[Angular](https://angular.io/)**.
 
-Εναλλακτικές:
-Web εφαρμογή (server-side ή SPA) με React, Vue.js, ή Angular.
+### Back-end:
+- Ανάπτυξη με χρήση αντικειμενοστραφούς γλώσσας προγραμματισμού.
+- Χρήση **[Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection)** για τη διαχείριση εξαρτήσεων.
+- ORM για την επικοινωνία με τη βάση δεδομένων (π.χ. **[Hibernate](https://hibernate.org/)**, **[Entity Framework](https://learn.microsoft.com/en-us/ef/)**).
 
-**Back-end:**
+### Βάση Δεδομένων:
+Επιλογή σχεσιακής βάσης δεδομένων, όπως:
+- **[MySQL](https://www.mysql.com/)** ✔️
+- **[PostgreSQL](https://www.postgresql.org/)**
+- **[MariaDB](https://mariadb.org/)**
+- **[SQL Server](https://www.microsoft.com/en-us/sql-server)**
 
-Ανάπτυξη με χρήση αντικειμενοστραφούς γλώσσας προγραμματισμού.
-Χρήση Dependency Injection για τη διαχείριση εξαρτήσεων.
-Επικοινωνία του back-end με τη βάση δεδομένων μέσω ORM (π.χ. **Hibernate**, Entity Framework).
+## 🔧 Απαιτήσεις
 
-**Βάση Δεδομένων:**
-**Επιλογή σχεσιακής βάσης δεδομένων, όπως:**
+Για να τρέξετε την εφαρμογή, θα χρειαστείτε:
+- **[JDK 11+](https://openjdk.org/projects/jdk/11/)** (για το back-end)
+- **[Node.js](https://nodejs.org/)** για το SvelteKit front-end
+- Εγκατεστημένη σχεσιακή βάση δεδομένων (π.χ. **[MySQL](https://www.mysql.com/)** ✔️)
+- **[Trello](https://trello.com/)** ✔️ για τη διαχείριση έργου
 
-- **MySQL**
-- PostgreSQL
-- MariaDB
-- SQL Server
+## 🚀 Οδηγίες Εγκατάστασης
 
-**Απαιτήσεις**
+1. **Κλώνος του αποθετηρίου**:
+    ```bash
+    gh repo clone uniwa-software/Special_Topics_in_Software_Engineering
+    ```
+2. **Εγκατάσταση εξαρτήσεων**:
+    - Για το front-end:
+      ```bash
+      cd frontend
+      npm install
+      ```
+    - Για το back-end:
+      ```bash
+      cd backend
+      ./gradlew build
+      ```
+3. **Διαμόρφωση της βάσης δεδομένων**:
+   - Εκτελέστε το σχήμα SQL που βρίσκεται στο `database/schema.sql` για να διαμορφώσετε τη βάση δεδομένων.
+4. **Εκκίνηση του server**:
+    - Για το front-end (SvelteKit):
+      ```bash
+      npm run dev
+      ```
+    - Για το back-end:
+      ```bash
+      ./gradlew bootRun
+      ```
 
-Για να τρέξετε την εφαρμογή, χρειάζεστε:
-- JDK 11+
-- Εγκατεστημένη σχεσιακή βάση δεδομένων (π.χ. **MySQL** ή PostgreSQL)
-- Εργαλεία διαχείρισης έργου όπως **Trello** ή Jira
-
-**Οδηγίες Εγκατάστασης**
-
-1. Κλώνος του αποθετηρίου:
-```gh repo clone uniwa-software/Special_Topics_in_Software_Engineering```
-3. Εγκατάσταση των εξαρτήσεων και διαμόρφωση της βάσης δεδομένων.
-4. Eκκινήστε τον web server.
-
-**Δομή του Έργου**
+## 📂 Δομή του Έργου
 
 ```
 ├── backend/
@@ -64,14 +86,16 @@ Web εφαρμογή (server-side ή SPA) με React, Vue.js, ή Angular.
 └── database/
     └── schema.sql
 ```
-    
-**Εργαλεία Ανάπτυξης**
 
-Git για τον έλεγχο έκδοσης
-**GitHub** ή GitLab για την αποθήκευση του κώδικα
-**Trello** ή Jira για τη διαχείριση έργου
+## 🛠️ Εργαλεία Ανάπτυξης
+- **[Git](https://git-scm.com/)** για έλεγχο εκδόσεων
+- **[GitHub](https://github.com/)** ✔️ για αποθήκευση κώδικα
+- **[Trello](https://trello.com/)** ✔️ για διαχείριση sprints και εργασιών
 
+## 📝 Άδεια Χρήσης
+Αυτό το έργο διατίθεται υπό τους όρους της άδειας **[MIT](https://opensource.org/licenses/MIT)**. Ανατρέξτε στο αρχείο `LICENSE` για περισσότερες πληροφορίες.
 
-**Άδεια**
+---
 
-Αυτό το έργο διατίθεται υπό τους όρους της άδειας MIT. Ανατρέξτε στο αρχείο LICENSE για περισσότερες λεπτομέρειες.
+### 📌 Σημείωση:
+Μη διστάσετε να προσαρμόσετε τις ενότητες για το project σας! Όλες οι τεχνολογίες και οι διαδικασίες ανάπτυξης μπορούν να εξελιχθούν ανάλογα με τις ανάγκες της ομάδας σας.
