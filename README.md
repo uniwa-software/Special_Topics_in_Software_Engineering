@@ -95,7 +95,9 @@
 ## 📝 Άδεια Χρήσης
 Αυτό το έργο διατίθεται υπό τους όρους της άδειας **[MIT](https://opensource.org/licenses/MIT)**. Ανατρέξτε στο αρχείο `LICENSE` για περισσότερες πληροφορίες.
 
----
+## 📱 Connect with Us
 
-### 📌 Σημείωση:
-Μη διστάσετε να προσαρμόσετε τις ενότητες για το project σας! Όλες οι τεχνολογίες και οι διαδικασίες ανάπτυξης μπορούν να εξελιχθούν ανάλογα με τις ανάγκες της ομάδας σας.
+You can connect with the project contributors on LinkedIn:
+
+- **Νίκος Θωμάς**: [LinkedIn Profile](https://www.linkedin.com/in/nikos-thomas-5687b5263)
+- **Φίλλιπος Παπαγεωργίου**: [LinkedIn Profile](https://www.linkedin.com/in/filipe-papageorgiou-55491b27b/)
