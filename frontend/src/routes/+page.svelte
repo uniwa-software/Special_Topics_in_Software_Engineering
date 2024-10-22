@@ -9,7 +9,7 @@
 </svelte:head>
 
 <body>
-	<header class="h-15 z-10 fixed w-full bg-comb-white/90">
+	<header class="h-[64px] z-10 fixed w-full bg-comb-white/90 border-b-4 border-comb-blue">
 		<div class="container h-full flex justify-between items-center text-white">
 			<img class="h-8 w-8 rounded-xl" src={logo} alt="" />
 			<a
@@ -37,7 +37,7 @@
 	<section class="bg-bg-1 h-screen">
 		<div class="container"></div>
 		<svg
-			class="absolute bottom-0 rotate-180"
+			class="absolute bottom-[-1px] rotate-180"
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 1000 100"
 			preserveAspectRatio="none"><path fill="#ffff" d="M0 6V0h1000v100L0 6z" /></svg
@@ -48,7 +48,29 @@
 			<h2 class="text-center text-4xl font-bold">TITLE TILTE</h2>
 		</div>
 	</section>
-	<section class="bg-bg-2 h-[50vh] relative">
+	<section class="bg-bg-2 h-screen relative">
+		<svg
+			class="absolute top-0 rotate-y-180"
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 1000 100"
+			preserveAspectRatio="none"><path fill="#ffff" d="M0 6V0h1000v100L0 6z" /></svg
+		>
+		<div class="container">
+			<h2 class="text-center text-4xl font-bold">TITLE TILTE</h2>
+		</div>
+		<svg
+		class="absolute bottom-[-1px] rotate-180"
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 1000 100"
+		preserveAspectRatio="none"><path fill="#ffff" d="M0 6V0h1000v100L0 6z" /></svg
+	>
+	</section>
+	<section class="bg-white h-[50vh] relative">
+		<div class="container">
+			<h2 class="text-center text-4xl font-bold">TITLE TILTE</h2>
+		</div>
+	</section>
+	<section class="bg-bg-3 bg-cover h-screen relative">
 		<svg
 			class="absolute top-0 rotate-y-180"
 			xmlns="http://www.w3.org/2000/svg"
@@ -59,4 +81,12 @@
 			<h2 class="text-center text-4xl font-bold">TITLE TILTE</h2>
 		</div>
 	</section>
+
+	<footer class="bg-comb-white h-[400px] border-t-4 border-comb-cyan">
+		<div class="container">
+
+
+		</div>
+	</footer>
+
 </body>

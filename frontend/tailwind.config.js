@@ -15,6 +15,7 @@ export default {
 			  backgroundImage: {
 				'bg-1': "url('/src/lib/images/bg-1.jpg')",
 				'bg-2': "url('/src/lib/images/bg-2.jpg')",
+				'bg-3': "url('/src/lib/images/bg-3.jpg')",
 			  },
 		},
 		container: {
