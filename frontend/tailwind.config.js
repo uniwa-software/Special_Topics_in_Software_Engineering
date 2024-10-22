@@ -2,7 +2,21 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-		extend: {},
+		extend: {
+			spacing: {
+				'15': '60px',
+			  },
+			  colors: {
+				'comb-white': '#FAF3DD',
+				'comb-gray': '#696D7D',
+				'comb-cyan': '#68B0AB',
+				'comb-blue': '#8fc0a9',
+			  },
+			  backgroundImage: {
+				'bg-1': "url('/src/lib/images/bg-1.jpg')",
+				'bg-2': "url('/src/lib/images/bg-2.jpg')",
+			  },
+		},
 		container: {
 			center: true,
 			screens: {
