@@ -1,33 +1,62 @@
 <script>
 	export let data;
+	import logo from '$lib/images/logo.png';
 </script>
 
-<header class="h-14 bg-slate-500">test</header>
+<svelte:head>
+	<title>Comb Barbershop</title>
+	<meta name="description" content="Demo project for the Full SvelteKit" />
+</svelte:head>
 
-<div class="container">
-	{#if data.users.length > 0}
-		<ul>
-			{#each data.appointments as appointment}
-				<li>
-					<strong>Username:</strong>
-					{appointment.id}
-				</li>
-			{/each}
+<body>
+	<header class="h-15 z-10 fixed w-full bg-comb-white/90">
+		<div class="container h-full flex justify-between items-center text-white">
+			<img class="h-8 w-8 rounded-xl" src={logo} alt="" />
+			<a
+				href="test"
+				class="bg-comb-cyan py-2 px-3 rounded-xl flex gap-1 hover:bg-comb-blue duration-300"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="icon icon-tabler icons-tabler-outline icon-tabler-book"
+					><path d="M0 0h24v24H0z" stroke="none" /><path
+						d="M3 19a9 9 0 0 1 9 0 9 9 0 0 1 9 0M3 6a9 9 0 0 1 9 0 9 9 0 0 1 9 0M3 6v13M12 6v13M21 6v13"
+					/></svg
+				>BOOK NOW</a
+			>
+		</div>
+	</header>
 
-			{#each data.users as user}
-				<li>
-					<strong>Username:</strong>
-					{user.username},
-					<strong>Email:</strong>
-					{user.email},
-					<strong>Phone:</strong>
-					{user.phone || 'N/A'},
-					<strong>Role:</strong>
-					{user.role}
-				</li>
-			{/each}
-		</ul>
-	{:else}
-		<p>No users found.</p>
-	{/if}
-</div>
+	<section class="bg-bg-1 h-screen">
+		<div class="container"></div>
+		<svg
+			class="absolute bottom-0 rotate-180"
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 1000 100"
+			preserveAspectRatio="none"><path fill="#ffff" d="M0 6V0h1000v100L0 6z" /></svg
+		>
+	</section>
+	<section class="bg-white h-[50vh] relative">
+		<div class="container">
+			<h2 class="text-center text-4xl font-bold">TITLE TILTE</h2>
+		</div>
+	</section>
+	<section class="bg-bg-2 h-[50vh] relative">
+		<svg
+			class="absolute top-0 rotate-y-180"
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 1000 100"
+			preserveAspectRatio="none"><path fill="#ffff" d="M0 6V0h1000v100L0 6z" /></svg
+		>
+		<div class="container">
+			<h2 class="text-center text-4xl font-bold">TITLE TILTE</h2>
+		</div>
+	</section>
+</body>
