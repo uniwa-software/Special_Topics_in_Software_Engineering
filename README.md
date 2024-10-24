@@ -73,18 +73,21 @@
 ## 📂 Δομή του Έργου
 
 ```
-├── backend/
-│   ├── src/
-│   ├── controllers/
-│   ├── services/
-│   ├── repository/
-│   └── tests/
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   └── components/
-└── database/
-    └── schema.sql
+├── backend/     # Κώδικας για το backend (Express.js ή άλλο backend)
+│ ├── app.js     # Το βασικό αρχείο για το Express server
+│ ├── package.json     # Εξαρτήσεις και σενάρια για το backend
+│ └── (Άλλα αρχεία backend)
+├── frontend/     # SvelteKit εφαρμογή (frontend)
+│ ├── src/     # Πηγαίος κώδικας για το SvelteKit
+│ ├── public/     # Στατικά αρχεία για το frontend
+│ ├── app.css     # Tailwind CSS για το στυλ του frontend
+│ ├── package.json     # Εξαρτήσεις για το SvelteKit
+│ └── (Άλλα αρχεία frontend)
+├── database/     # Αρχεία για τη βάση δεδομένων
+│ └── schema.sql     # Σχήμα SQL για τη βάση δεδομένων MySQL
+├── postcss.config.cjs     # Ρυθμίσεις για το PostCSS 
+├── tailwind.config.js     # Ρυθμίσεις για το Tailwind CSS
+ └── package.json     # Εξαρτήσεις για το frontend
 ```
 
 ## 🛠️ Εργαλεία Ανάπτυξης
@@ -95,7 +98,9 @@
 ## 📝 Άδεια Χρήσης
 Αυτό το έργο διατίθεται υπό τους όρους της άδειας **[MIT](https://opensource.org/licenses/MIT)**. Ανατρέξτε στο αρχείο `LICENSE` για περισσότερες πληροφορίες.
 
----
+## 📱 Connect with Us
 
-### 📌 Σημείωση:
-Μη διστάσετε να προσαρμόσετε τις ενότητες για το project σας! Όλες οι τεχνολογίες και οι διαδικασίες ανάπτυξης μπορούν να εξελιχθούν ανάλογα με τις ανάγκες της ομάδας σας.
+Μπορείτε να συνδεθείτε με τους συνεισφέροντες του έργου στο LinkedIn:
+
+- **Νίκος Θωμάς**: [LinkedIn Profile](https://www.linkedin.com/in/nikos-thomas-5687b5263)
+- **Φίλιππος Παπαγεωργίου**: [LinkedIn Profile](https://www.linkedin.com/in/filipe-papageorgiou-55491b27b/)
