@@ -1,6 +1,15 @@
 <script>
-	export let data;
 	import logo from '$lib/images/logo.png';
+	import { goto } from '$app/navigation';
+
+	const handleRegister = () => {
+    	goto("/auth/register")
+  	};
+  
+  	const handleLogin = () => {
+    	goto("/auth/login")
+  	};
+
 </script>
 
 <svelte:head>
@@ -9,30 +18,49 @@
 </svelte:head>
 
 <body>
-	<header class="h-[64px] z-10 fixed w-full bg-comb-white/90 border-b-4 border-comb-blue">
-		<div class="container h-full flex justify-between items-center text-white">
-			<img class="h-8 w-8 rounded-xl" src={logo} alt="" />
-			<a
-				href="test"
-				class="bg-comb-cyan py-2 px-3 rounded-xl flex gap-1 hover:bg-comb-blue duration-300"
+	<header class="h-15 z-10 fixed w-full bg-comb-white/90">
+		<div class="container h-full flex justify-between items-center">
+		  <img class="h-8 w-8 rounded-xl" src={logo} alt="Logo" />
+		  
+		  <div class="flex items-center gap-4">
+			<button
+			  on:click={handleRegister}
+			  class="px-4 py-1.5 text-[#FAF3DD] bg-[#68B0AB] hover:bg-[#8FC0A9] rounded-xl transition-colors duration-300 text-sm font-medium shadow-sm"
 			>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="24"
-					height="24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					class="icon icon-tabler icons-tabler-outline icon-tabler-book"
-					><path d="M0 0h24v24H0z" stroke="none" /><path
-						d="M3 19a9 9 0 0 1 9 0 9 9 0 0 1 9 0M3 6a9 9 0 0 1 9 0 9 9 0 0 1 9 0M3 6v13M12 6v13M21 6v13"
-					/></svg
-				>BOOK NOW</a
+			  Register
+			</button>
+			
+			<button
+			  on:click={handleLogin}
+			  class="px-4 py-1.5 border-2 border-[#68B0AB] text-[#68B0AB] hover:bg-[#FAF3DD] rounded-xl transition-colors duration-300 text-sm font-medium"
 			>
+			  Login
+			</button>
+			
+			<!-- Book Now Button -->
+			<a 
+			  href="/" 
+			  class="bg-comb-cyan py-2 px-3 rounded-xl flex gap-1 hover:bg-comb-blue duration-300 text-white"
+			> 
+			  <svg 
+				xmlns="http://www.w3.org/2000/svg" 
+				width="24" 
+				height="24" 
+				fill="none" 
+				stroke="currentColor" 
+				stroke-width="2" 
+				stroke-linecap="round" 
+				stroke-linejoin="round" 
+				class="icon icon-tabler icons-tabler-outline icon-tabler-book" 
+			  >
+				<path d="M0 0h24v24H0z" stroke="none" />
+				<path d="M3 19a9 9 0 0 1 9 0 9 9 0 0 1 9 0M3 6a9 9 0 0 1 9 0 9 9 0 0 1 9 0M3 6v13M12 6v13M21 6v13" />
+			  </svg>
+			  BOOK NOW
+			</a> 
+		  </div>
 		</div>
-	</header>
+	  </header>
 
 	<section class="bg-bg-1 h-screen">
 		<div class="container"></div>
