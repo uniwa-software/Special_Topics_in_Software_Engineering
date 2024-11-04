@@ -1,5 +1,21 @@
 <script>
     import { enhance } from '$app/forms';
+    import { goto } from '$app/navigation';
+    import { authStore , setAuth } from '$lib/stores/auth';
+    import { get } from 'svelte/store';
+    import { onMount } from 'svelte';
+
+
+    onMount(async () => {
+      const auth = get(authStore);
+      if(auth?.token){
+        goto('/');
+      }
+    });
+    
+    
+ 
+    let error = '';
     
     let user = {
       username: '',
@@ -11,11 +27,40 @@
     };
     
     
-    const handleSubmit = () => {
-      
+    function handleSubmit(){
+        // @ts-ignore
+        return async ({ result }) => {
+            if (result.type === 'success') {
+              console.log(result);
+                setAuth({
+                token:result.data.token,
+                user:result.data.user,
+            })
+            const auth = get(authStore);
+            console.log("\nAuth store : ",auth);
+            goto('/');
+            } else {
+                console.log(result)
+                error = result.data?.error.error || 'Login failed';
+            }
+        };
     };
-  </script>
-  
+
+    function goToHome() {
+      goto('/');
+    }
+  </script>  
+
+<div class="absolute top-4 left-4">
+  <button
+    on:click={goToHome}
+    class="bg-[#68B0AB] text-[#FAF3DD] py-2 px-4 rounded-lg shadow-md hover:opacity-90 transition-all duration-300"
+  >
+    Back to Home
+  </button>
+</div>
+
+
   <div class="flex justify-center items-center min-h-screen bg-gradient-to-br from-[#8FC0A9] to-[#68B0AB] py-8">
     <div class="bg-[#FAF3DD] p-8 rounded-lg shadow-lg max-w-md w-full mx-4">
       <h1 class="text-center text-[#696D7D] text-2xl font-semibold mb-6">Create Your Account</h1>
@@ -98,7 +143,10 @@
           />
         </div>
         
-        
+        {#if error != ''}
+          <p class="text-red-600">{error}</p>
+        {/if}
+
         <div class="text-center text-[#696D7D] mb-6">
           <span>Already have an account?</span>
           <a 
