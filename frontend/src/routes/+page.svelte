@@ -13,6 +13,10 @@
     	goto("/auth/login")
   	};
 
+	  const handleBook = () => {
+    	goto("/book")
+  	};
+
 </script>
 
 <svelte:head>
@@ -41,9 +45,9 @@
 			</button>
 			
 			<!-- Book Now Button -->
-			<a 
-			  href="/" 
-			  class="bg-comb-cyan py-2 px-3 rounded-xl flex gap-1 hover:bg-comb-blue duration-300 text-white"
+			<button 
+			on:click={handleBook}
+			class="{get(authStore) ? '' : 'hidden'} bg-comb-cyan py-2 px-3 rounded-xl flex gap-1 hover:bg-comb-blue duration-300 text-white"
 			> 
 			  <svg 
 				xmlns="http://www.w3.org/2000/svg" 
@@ -60,7 +64,7 @@
 				<path d="M3 19a9 9 0 0 1 9 0 9 9 0 0 1 9 0M3 6a9 9 0 0 1 9 0 9 9 0 0 1 9 0M3 6v13M12 6v13M21 6v13" />
 			  </svg>
 			  BOOK NOW
-			</a> 
+			</button> 
 		  </div>
 		</div>
 	  </header>

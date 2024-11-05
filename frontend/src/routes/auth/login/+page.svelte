@@ -33,8 +33,7 @@
             console.log("\nAuth store : ",auth);
             goto('/');
             } else {
-                console.log(result)
-                error = result.data?.error.error || 'Login failed';
+                alert('Login Failed!');
             }
         };
     };
