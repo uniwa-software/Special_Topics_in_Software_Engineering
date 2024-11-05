@@ -1,6 +1,9 @@
 <script>
 	import logo from '$lib/images/logo.png';
 	import { goto } from '$app/navigation';
+	import { get } from 'svelte/store';
+	import { authStore } from '$lib/stores/auth';
+	
 
 	const handleRegister = () => {
     	goto("/auth/register")
@@ -25,14 +28,14 @@
 		  <div class="flex items-center gap-4">
 			<button
 			  on:click={handleRegister}
-			  class="px-4 py-1.5 text-[#FAF3DD] bg-[#68B0AB] hover:bg-[#8FC0A9] rounded-xl transition-colors duration-300 text-sm font-medium shadow-sm"
+			  class="{get(authStore) ? 'hidden' : ''} px-4 py-1.5 text-[#FAF3DD] bg-[#68B0AB] hover:bg-[#8FC0A9] rounded-xl transition-colors duration-300 text-sm font-medium shadow-sm"
 			>
 			  Register
 			</button>
 			
 			<button
 			  on:click={handleLogin}
-			  class="px-4 py-1.5 border-2 border-[#68B0AB] text-[#68B0AB] hover:bg-[#FAF3DD] rounded-xl transition-colors duration-300 text-sm font-medium"
+			  class="{get(authStore) ? 'hidden' : ''} px-4 py-1.5 border-2 border-[#68B0AB] text-[#68B0AB] hover:bg-[#FAF3DD] rounded-xl transition-colors duration-300 text-sm font-medium"
 			>
 			  Login
 			</button>
