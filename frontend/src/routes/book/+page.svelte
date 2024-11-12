@@ -86,7 +86,7 @@
 	<div class="bg-[#FAF3DD] p-8 rounded-lg shadow-lg max-w-md w-full mx-4">
 		<h2 class="text-2xl font-semibold mb-6 text-center text-[#68B0AB]">Κλείστε ραντεβού</h2>
 
-		<div class="grid grid-cols-3 gap-4">
+		<div class="grid grid-cols-2 tab:grid-cols-3 gap-4">
 			{#each timeSlots as slot (slot.getTime())}
 				<button
 					on:click={() => selectTime(slot)}
