@@ -7,7 +7,6 @@ const Appointments = require("./models/appointments");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const authenticateToken = require("./middleware/authenticateToken");
-const authenticateToken = require("./middleware/authenticateToken");
 
 const app = express();
 const port = 3000;
