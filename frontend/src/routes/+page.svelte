@@ -13,6 +13,10 @@
     	goto("/auth/login")
   	};
 
+	  const handleBook = () => {
+    	goto("/book")
+  	};
+
 </script>
 
 <svelte:head>
@@ -41,9 +45,9 @@
 			</button>
 			
 			<!-- Book Now Button -->
-			<a 
-			  href="/" 
-			  class="bg-comb-cyan py-2 px-3 rounded-xl flex gap-1 hover:bg-comb-blue duration-300 text-white"
+			<button 
+			on:click={handleBook}
+			class="{get(authStore) ? '' : 'hidden'} bg-comb-cyan py-2 px-3 rounded-xl flex gap-1 hover:bg-comb-blue duration-300 text-white"
 			> 
 			  <svg 
 				xmlns="http://www.w3.org/2000/svg" 
@@ -60,7 +64,7 @@
 				<path d="M3 19a9 9 0 0 1 9 0 9 9 0 0 1 9 0M3 6a9 9 0 0 1 9 0 9 9 0 0 1 9 0M3 6v13M12 6v13M21 6v13" />
 			  </svg>
 			  BOOK NOW
-			</a> 
+			</button> 
 		  </div>
 		</div>
 	  </header>
@@ -68,7 +72,7 @@
 	<section class="bg-bg-1 h-screen">
 		<div class="container"></div>
 		<svg
-			class="absolute bottom-0 rotate-180"
+			class="absolute bottom-[-1px] rotate-180"
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 1000 100"
 			preserveAspectRatio="none"><path fill="#ffff" d="M0 6V0h1000v100L0 6z" /></svg
@@ -79,7 +83,29 @@
 			<h2 class="text-center text-4xl font-bold">TITLE TILTE</h2>
 		</div>
 	</section>
-	<section class="bg-bg-2 h-[50vh] relative">
+	<section class="bg-bg-2 h-screen relative">
+		<svg
+			class="absolute top-0 rotate-y-180"
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 1000 100"
+			preserveAspectRatio="none"><path fill="#ffff" d="M0 6V0h1000v100L0 6z" /></svg
+		>
+		<div class="container">
+			<h2 class="text-center text-4xl font-bold">TITLE TILTE</h2>
+		</div>
+		<svg
+		class="absolute bottom-[-1px] rotate-180"
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 1000 100"
+		preserveAspectRatio="none"><path fill="#ffff" d="M0 6V0h1000v100L0 6z" /></svg
+	>
+	</section>
+	<section class="bg-white h-[50vh] relative">
+		<div class="container">
+			<h2 class="text-center text-4xl font-bold">Που βρισκόμαστε</h2>
+		</div>
+	</section>
+	<section class="bg-bg-3 bg-cover h-screen relative">
 		<svg
 			class="absolute top-0 rotate-y-180"
 			xmlns="http://www.w3.org/2000/svg"
@@ -90,4 +116,12 @@
 			<h2 class="text-center text-4xl font-bold">TITLE TILTE</h2>
 		</div>
 	</section>
+
+	<footer class="bg-comb-white h-[400px] border-t-4 border-comb-cyan">
+		<div class="container">
+
+
+		</div>
+	</footer>
+
 </body>

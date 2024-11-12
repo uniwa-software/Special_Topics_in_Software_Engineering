@@ -42,19 +42,32 @@ app.get("/api/users", async (req, res) => {
   }
 });
 
-app.get("/api/appointments", async (req, res) => {
+app.post("/api/appointments", async (req, res) => {
+  console.log("Received a POST request to /api/appointments", req.body);
   try {
-    const appointments = await Appointments.findAll();
-    res.json(appointments);
+    console.log("Received data:", req.body);
+    const { username, date, employee, type } = req.body;
+
+    const appointment = await Appointments.create({
+      username,
+      date,
+      employee,
+      type,
+    });
+
+    res
+      .status(201)
+      .json({ message: "Appointment booked successfully", appointment });
   } catch (err) {
-    console.error("Error fetching appointments:", err);
+    console.error("Error booking appointment:", err);
     res.status(500).json({ error: "Something went wrong" });
   }
 });
 
 app.post("/api/register", async (req, res) => {
   try {
-    const { username, password, email, phone , address, role , created_at } = req.body;
+    const { username, password, email, phone, address, role, created_at } =
+      req.body;
 
     const existingUser = await Users.findOne({ where: { username } });
     if (existingUser) {
@@ -69,29 +82,30 @@ app.post("/api/register", async (req, res) => {
       email,
       phone,
       address,
+      phone,
+      address,
       role,
-      created_at
+      created_at,
     });
 
-    
-
-    const token = jwt.sign({
-      username:user.username,
-      role: user.role
+    const token = jwt.sign(
+      {
+        username: user.username,
+        role: user.role,
       },
       process.env.JWT_SECRET,
-      {expiresIn : process.env.JWT_EXPIRES_IN || '1h'}
+      { expiresIn: process.env.JWT_EXPIRES_IN || "1h" }
     );
 
     // Return user info and token
-    res.status(201).json({ 
+    res.status(201).json({
       message: "User registered successfully",
       user: {
         username: user.username,
         email: user.email,
-        role: user.role
+        role: user.role,
       },
-      token 
+      token,
     });
   } catch (err) {
     console.error("Error registering user:", err);
@@ -104,6 +118,7 @@ app.post("/api/login", async (req, res) => {
     const { username, password } = req.body;
     const user = await Users.findOne({ where: { username } });
 
+
     if (!user) {
       return res.status(401).json({ error: "Invalid credentials" });
     }
@@ -114,23 +129,23 @@ app.post("/api/login", async (req, res) => {
     }
 
     const token = jwt.sign(
-      { 
-        username: user.username, 
-        role: user.role 
+      {
+        username: user.username,
+        role: user.role,
       },
-       process.env.JWT_SECRET,
+      process.env.JWT_SECRET,
       { expiresIn: process.env.JWT_EXPIRES_IN }
     );
 
-     // Return user info and token
-     res.status(201).json({ 
+    // Return user info and token
+    res.status(201).json({
       message: "User registered successfully",
       user: {
         username: user.username,
         email: user.email,
-        role: user.role
+        role: user.role,
       },
-      token 
+      token,
     });
   } catch (err) {
     console.error("Error logging in:", err);
@@ -139,12 +154,11 @@ app.post("/api/login", async (req, res) => {
 });
 
 app.get("/api/verify-token", authenticateToken, (req, res) => {
-  res.json({ 
-      valid: true, 
-      user: req.user 
+  res.json({
+    valid: true,
+    user: req.user,
   });
 });
-
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
