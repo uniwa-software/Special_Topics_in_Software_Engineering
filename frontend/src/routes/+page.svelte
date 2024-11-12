@@ -102,7 +102,7 @@
 	</section>
 	<section class="bg-white h-[50vh] relative">
 		<div class="container">
-			<h2 class="text-center text-4xl font-bold">TITLE TILTE</h2>
+			<h2 class="text-center text-4xl font-bold">Που βρισκόμαστε</h2>
 		</div>
 	</section>
 	<section class="bg-bg-3 bg-cover h-screen relative">
