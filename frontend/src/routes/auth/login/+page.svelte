@@ -4,6 +4,9 @@
     import { authStore , setAuth } from '$lib/stores/auth';
     import { get } from 'svelte/store';
     import { onMount } from 'svelte';
+    import { authStore , setAuth } from '$lib/stores/auth';
+    import { get } from 'svelte/store';
+    import { onMount } from 'svelte';
   
      let user = {
         username: '',
@@ -17,13 +20,30 @@
         goto('/');
       }
     });
+
+     onMount(async () => {
+      const auth = get(authStore);
+      if(auth?.token){
+        console.log(auth)
+        goto('/');
+      }
+    });
     
+    let error = "";
     let error = "";
 
      function handleSubmit(){
         // @ts-ignore
         return async ({ result }) => {
             if (result.type === 'success') {
+              console.log(result);
+                setAuth({
+                token:result.data.token,
+                user:result.data.user,
+            })
+            const auth = get(authStore);
+            console.log("\nAuth store : ",auth);
+            goto('/');
               console.log(result);
                 setAuth({
                 token:result.data.token,
@@ -41,9 +61,21 @@
     function goToHome(){
       goto('/');
     }
+
+    function goToHome(){
+      goto('/');
+    }
     
 </script>
 
+<div class="absolute top-4 left-4">
+  <button
+    on:click={goToHome}
+    class="bg-[#68B0AB] text-[#FAF3DD] py-2 px-4 rounded-lg shadow-md hover:opacity-90 transition-all duration-300"
+  >
+    Back to Home
+  </button>
+</div>
 <div class="absolute top-4 left-4">
   <button
     on:click={goToHome}

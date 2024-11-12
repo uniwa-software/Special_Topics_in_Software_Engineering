@@ -7,6 +7,7 @@ const Appointments = require("./models/appointments");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const authenticateToken = require("./middleware/authenticateToken");
+const authenticateToken = require("./middleware/authenticateToken");
 
 const app = express();
 const port = 3000;
@@ -82,6 +83,8 @@ app.post("/api/register", async (req, res) => {
       email,
       phone,
       address,
+      phone,
+      address,
       role,
       created_at,
     });
@@ -115,6 +118,7 @@ app.post("/api/login", async (req, res) => {
   try {
     const { username, password } = req.body;
     const user = await Users.findOne({ where: { username } });
+
 
     if (!user) {
       return res.status(401).json({ error: "Invalid credentials" });
