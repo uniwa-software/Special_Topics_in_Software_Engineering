@@ -1,9 +1,9 @@
-<section class="min-h-screen relative py-20">
+<section id="gaol" class="min-h-screen relative py-20">
     <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl font-bold mb-12">Η αποστολή μας</h2>
             
-            <div class="grid md:grid-cols-2 gap-12 text-left mb-16">
+            <div class="grid justify-center md:grid-cols-2 gap-12 text-left mb-16">
                 <div class="space-y-6">
                     <div class="flex items-start gap-4">
                         <div class="w-12 h-12 bg-[#68B0AB] rounded-full flex items-center justify-center flex-shrink-0">
@@ -76,5 +76,9 @@
                 </p>
             </div>
         </div>
+        
+        <h2 class="text-center text-4xl font-bold my-10">Που βρισκόμαστε</h2>
+        <div style="width: 100%"><iframe title="Comb" width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=University%20of%20West%20Attica%20-%20Campus%201,%20university,%20%CE%91%CE%B9%CE%B3%CE%AC%CE%BB%CE%B5%CF%89,%20Greece+(Comb)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+
     </div>
 </section>

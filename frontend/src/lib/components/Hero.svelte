@@ -13,12 +13,12 @@
                 Κάντε κράτηση για τη μεταμόρφωσή σας σήμερα.
             </p>
             <div class="flex gap-4">
-                <button class="bg-[#68B0AB] text-white px-8 py-3 rounded-xl hover:bg-[#8FC0A9] transition-all duration-300">
+                <a href="/book" class="bg-[#68B0AB] text-white px-8 py-3 rounded-xl hover:bg-[#8FC0A9] transition-all duration-300">
                     Κλείσε ραντεβού
-                </button>
-                <button class="border-2 border-white text-white px-8 py-3 rounded-xl hover:bg-white/10 transition-all duration-300">
+                </a>
+                <a href="#cards" class="border-2 border-white text-white px-8 py-3 rounded-xl hover:bg-white/10 transition-all duration-300">
                     Οι Υπηρεσίες μας
-                </button>
+                </a>
             </div>
         </div>
     </div>
