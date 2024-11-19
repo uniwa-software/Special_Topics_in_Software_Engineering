@@ -48,6 +48,19 @@ app.post("/api/appointments", async (req, res) => {
     console.log("Received data:", req.body);
     const { username, date, employee, type } = req.body;
 
+    const appointmentDate = new Date(date);
+
+    const existingAppointment = await Appointments.findOne({
+      where: {
+          date: appointmentDate,
+          employee: employee
+      }
+  });
+
+  if (existingAppointment) {
+      return res.status(400).json({ error: "Η ώρα δεν είναι διαθέσιμη." });
+  }
+
     const appointment = await Appointments.create({
       username,
       date,
@@ -117,7 +130,6 @@ app.post("/api/login", async (req, res) => {
   try {
     const { username, password } = req.body;
     const user = await Users.findOne({ where: { username } });
-
 
     if (!user) {
       return res.status(401).json({ error: "Invalid credentials" });

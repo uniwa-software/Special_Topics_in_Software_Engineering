@@ -30,7 +30,13 @@ const Appointments = sequelize.define('Appointments', {
     }
 }, {
     tableName: 'appointments',
-    timestamps: false
+    timestamps: false,
+    indexes: [
+        {
+            unique: true,
+            fields: ['date', 'employee']
+        }
+    ]
 });
 
 module.exports = Appointments;
