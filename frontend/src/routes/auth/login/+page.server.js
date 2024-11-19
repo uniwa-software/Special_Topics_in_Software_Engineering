@@ -1,4 +1,4 @@
-import {  error, fail, redirect } from '@sveltejs/kit';
+import { fail } from '@sveltejs/kit';
 /** @satisfies {import('./$types').Actions} */
 export const actions = {
     default: async ({ request }) => {
@@ -25,7 +25,6 @@ export const actions = {
             }
             
             const responseData = await response.json();
-            console.log("Response from api: ",responseData);
 
             
             return { 
