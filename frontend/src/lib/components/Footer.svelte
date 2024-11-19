@@ -26,7 +26,7 @@
               <a href="/" class="hover:text-yellow-400">Reviews</a>
             </div>
             <div class="relative group">
-              <a href="/" class="hover:text-yellow-400">Our Goal</a>
+              <a href="#gaol" class="hover:text-yellow-400">Our Goal</a>
             </div>
             <a href="/" class="hover:text-yellow-400">Blog</a>
             <a href="/auth/register" class="hover:text-yellow-400">Sign up</a>
@@ -61,13 +61,6 @@
               <p class="text-gray-300">217 Main Street</p>
               <p class="text-gray-300">City, State 12345</p>
               <p class="text-yellow-400">+1 234 567 8900</p>
-            </div>
-            
-            <div class="flex flex-col">
-              <p class="font-medium">Location 2</p>
-              <p class="text-gray-300">456 Side Street</p>
-              <p class="text-gray-300">City, State 12345</p>
-              <p class="text-yellow-400">+1 234 567 8901</p>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-<section class="bg-white py-20 relative">
+<section id="cards" class="bg-white py-20 relative">
     <div class="container mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mb-16">Οι υπογεγραμμένες υπηρεσίες μας</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

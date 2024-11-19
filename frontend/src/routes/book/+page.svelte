@@ -12,6 +12,7 @@
 		}
 	});
 
+	// Time slot generation
 	const startTime = new Date();
 	startTime.setHours(10, 0, 0, 0);
 
@@ -27,10 +28,13 @@
 		time = new Date(time.getTime() + duration);
 	}
 
+	// State variables
 	const selectedTime = writable(null);
+	const selectedDate = writable(new Date().toISOString().split('T')[0]); // Default to today
 	let selectedBarber = 'Νίκος';
-	let appointmentType = 'Κούρεμα';
+	let appointmentType = 'Κλασικό Κουρεμά';
 
+	// Functions
 	function selectTime(slot) {
 		selectedTime.set(slot);
 	}
@@ -38,12 +42,17 @@
 	async function bookAppointment() {
 		const user = get(authStore).user;
 
-        const appointmentData = {
-        username: user.username,
-        date: $selectedTime,
-        employee: selectedBarber,
-        type: appointmentType
+		// Combine the selected date and time
+		const selectedDateTime = new Date(`${$selectedDate}T${$selectedTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`);
+
+		const appointmentData = {
+			username: user?.username || 'Guest',
+			date: selectedDateTime,
+			employee: selectedBarber,
+			type: appointmentType
 		};
+
+		console.log(selectedDateTime);
 
 		try {
 			const response = await fetch('http://localhost:3000/api/appointments', {
@@ -86,6 +95,16 @@
 	<div class="bg-[#FAF3DD] p-8 rounded-lg shadow-lg max-w-md w-full mx-4">
 		<h2 class="text-2xl font-semibold mb-6 text-center text-[#68B0AB]">Κλείστε ραντεβού</h2>
 
+		<!-- Day Selection -->
+		<span class="block my-2 text-[#68B0AB] font-semibold">Επιλέξτε Ημέρα:</span>
+		<input
+			type="date"
+			bind:value={$selectedDate}
+			class="w-full mb-4 p-2 rounded-md shadow-md bg-[#8FC0A9] text-[#FAF3DD]"
+		/>
+
+		<!-- Time Selection -->
+		<span class="block my-2 text-[#68B0AB] font-semibold">Επιλέξτε Ώρα:</span>
 		<div class="grid grid-cols-2 tab:grid-cols-3 gap-4">
 			{#each timeSlots as slot (slot.getTime())}
 				<button
@@ -109,20 +128,21 @@
 		</select>
 
 		<!-- Appointment Type Selection -->
-		<span class="block mb-2 text-[#68B0AB] font-semibold">Τύπος ραντεβού:</span>
+		<span class="block mb-2 text-[#68B0A9] font-semibold">Τύπος ραντεβού:</span>
 		<select
 			bind:value={appointmentType}
 			class="w-full mb-6 p-2 rounded-md shadow-md bg-[#8FC0A9] text-[#FAF3DD]"
 		>
-			<option value="Κούρεμα">Κούρεμα</option>
-			<option value="Ξύρισμα">Ξύρισμα</option>
-			<option value="Λούσιμο">Λούσιμο</option>
+			<option value="Κλασικό Κουρεμά">Κλασικό Κουρεμά</option>
+			<option value="Περιποίηση γενειάδας">Περιποίηση γενειάδας</option>
+			<option value="Πακέτο Premium">Πακέτο Premium</option>
 		</select>
 
 		{#if $selectedTime}
 			<div class="mt-3 text-center">
-				<p class="text-lg text-[#68B0AB]">
-					<strong>Επιλεγμένη ώρα:</strong>
+				<p class="text-lg text-[#68B0A9]">
+					<strong>Ημέρα:</strong> {$selectedDate}<br />
+					<strong>Ώρα:</strong>
 					{$selectedTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}<br />
 					<strong>Μπαρμπέρης:</strong>
 					{selectedBarber}<br />
