@@ -1,4 +1,5 @@
 <script>
+	// @ts-nocheck
 	import { goto } from '$app/navigation';
 	import { writable, get } from 'svelte/store';
 	import { authStore } from '$lib/stores/auth';
@@ -43,16 +44,15 @@
 		const user = get(authStore).user;
 
 		// Combine the selected date and time
-		const selectedDateTime = new Date(`${$selectedDate}T${$selectedTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`);
-
+		const selectedDateTime = new Date(
+			`${$selectedDate}T${$selectedTime.getHours().toString().padStart(2, '0')}:${$selectedTime.getMinutes().toString().padStart(2, '0')}:00.000Z`
+		);
 		const appointmentData = {
 			username: user?.username || 'Guest',
 			date: selectedDateTime,
 			employee: selectedBarber,
 			type: appointmentType
 		};
-
-		console.log(selectedDateTime);
 
 		try {
 			const response = await fetch('http://localhost:3000/api/appointments', {
@@ -64,12 +64,13 @@
 			});
 
 			if (!response.ok) {
-				throw new Error('Πρόβλημα με την κράτηση!');
+				const errorData = await response.json();
+				throw new Error(errorData.error || 'Πρόβλημα με την κράτηση!');
 			}
 
 			alert('Το ραντεβού καταγράφηκε!');
 		} catch (error) {
-			alert('Πρόβλημα με την κράτηση!');
+			alert(error.message || 'Πρόβλημα με την κράτηση!');
 		}
 	}
 
@@ -100,6 +101,7 @@
 		<input
 			type="date"
 			bind:value={$selectedDate}
+			min={new Date().toISOString().split('T')[0]}
 			class="w-full mb-4 p-2 rounded-md shadow-md bg-[#8FC0A9] text-[#FAF3DD]"
 		/>
 
@@ -141,7 +143,8 @@
 		{#if $selectedTime}
 			<div class="mt-3 text-center">
 				<p class="text-lg text-[#68B0A9]">
-					<strong>Ημέρα:</strong> {$selectedDate}<br />
+					<strong>Ημέρα:</strong>
+					{$selectedDate}<br />
 					<strong>Ώρα:</strong>
 					{$selectedTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}<br />
 					<strong>Μπαρμπέρης:</strong>
