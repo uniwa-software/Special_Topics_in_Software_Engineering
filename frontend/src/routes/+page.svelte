@@ -19,6 +19,12 @@
 	const handleBook = () => {
 		goto('/book');
 	};
+
+	const handleLogout = () => {
+		authStore.set(null);
+		localStorage.removeItem('auth');
+		window.location.reload();
+	};
 </script>
 
 <svelte:head>
@@ -27,12 +33,12 @@
 </svelte:head>
 
 <body>
-	<header class="fixed top-4 left-4 right-4 z-10">
-		<div class=" w-1/4 mx-auto bg-comb-white/90 rounded-full py-2 px-6 shadow-lg">
-			<div class="h-full flex justify-between items-center">
-				<img class="h-8 w-8 rounded-xl" src={logo} alt="Logo" />
+	<header class="fixed top-2 left-1 right-1 z-10 tab:top-4 tab:left-4 tab:right-4">
+		<div class=" w-80 mx-auto bg-comb-white/90 rounded-full py-2 px-6 shadow-lg tab:w-1/4">
+			<div class=" h-auto flex justify-center items-center tab:justify-between">
+				<img class="h-8 w-8 rounded-xl pr-2" src={logo} alt="Logo" />
 
-				<div class="flex items-center gap-4">
+				<div class="flex items-center gap-2 tab:gap-4">
 					<button
 						on:click={handleRegister}
 						class="{get(authStore)
@@ -50,12 +56,18 @@
 					>
 						Login
 					</button>
-
+					<button
+						on:click={handleLogout}
+						class="{get(authStore) ? '' : 'hidden'} rounded-xl bg-comb-blue px-4 py-1.5
+						 text-comb-white transition-all duration-300 hover:bg-red-500 hover:shadow-lg active:scale-95"
+					>
+					<span class="whitespace-nowrap">Log out</span>
+					</button>
 					<button
 						on:click={handleBook}
-						class="{get(authStore)
-							? ''
-							: 'hidden'} bg-comb-cyan py-2 px-3 rounded-xl flex gap-1 hover:bg-comb-blue duration-300 text-white"
+						class="{get(authStore) ? '' : 'hidden'} bg-comb-cyan py-1.5 px-4 rounded-xl
+   									flex items-center gap-2 hover:bg-comb-blue duration-300 text-white
+  									text-sm sm:text-base font-medium flex-shrink-0"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +85,7 @@
 								d="M3 19a9 9 0 0 1 9 0 9 9 0 0 1 9 0M3 6a9 9 0 0 1 9 0 9 9 0 0 1 9 0M3 6v13M12 6v13M21 6v13"
 							/>
 						</svg>
-						BOOK NOW
+						<span class="whitespace-nowrap">BOOK NOW</span>
 					</button>
 				</div>
 			</div>
