@@ -39,4 +39,9 @@ const Appointments = sequelize.define('Appointments', {
     ]
 });
 
+Appointments.belongsTo(Users, {
+    foreignKey: 'username',
+    targetKey: 'username'
+});
+
 module.exports = Appointments;

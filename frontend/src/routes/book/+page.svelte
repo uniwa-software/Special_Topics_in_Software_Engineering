@@ -135,9 +135,9 @@
 			bind:value={appointmentType}
 			class="w-full mb-6 p-2 rounded-md shadow-md bg-[#8FC0A9] text-[#FAF3DD]"
 		>
-			<option value="Κλασικό Κουρεμά">Κλασικό Κουρεμά</option>
-			<option value="Περιποίηση γενειάδας">Περιποίηση γενειάδας</option>
-			<option value="Πακέτο Premium">Πακέτο Premium</option>
+			<option value="Κλασικό Κουρεμά">Κλασικό Κουρεμά 10$</option>
+			<option value="Περιποίηση γενειάδας">Περιποίηση γενειάδας 15$</option>
+			<option value="Πακέτο Premium">Πακέτο Premium 25#</option>
 		</select>
 
 		{#if $selectedTime}

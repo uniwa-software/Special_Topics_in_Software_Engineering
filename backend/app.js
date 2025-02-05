@@ -77,6 +77,57 @@ app.post("/api/appointments", async (req, res) => {
   }
 });
 
+
+app.get("/api/appointments/admin",async (req, res) => {
+    try {
+        const appointments = await Appointments.findAll({
+          include: [{
+            model: Users,
+            attributes: [
+             'username',
+             'email',
+              'phone',
+              'address',
+              'created_at'
+            ]
+          }],
+          order: [['date', 'DESC']],
+          attributes: [
+            'id',
+            'date',
+            'employee',
+            'type',
+            'username'
+          ]
+        });
+  
+        const formattedAppointments = appointments.map(appointment => {
+        const appointmentData = appointment.get({ plain: true });
+        const userData = appointmentData.User;
+        
+          return {
+            appointment: {
+              id: appointmentData.id,
+              date: appointmentData.date,
+              employee: appointmentData.employee,
+              type: appointmentData.type
+            },
+            user: {
+              username: userData.username,
+              email: userData.email,
+              phone: userData.phone,
+              address: userData.address,
+              created_at: userData.created_at
+            }
+          };
+        });
+        res.json(formattedAppointments);
+      } catch (err) {
+        console.error("Error fetching appointments:", err);
+        res.status(500).json({ error: "Something went wrong while fetching appointments" });
+      }
+});
+  
 app.post("/api/register", async (req, res) => {
   try {
     const { username, password, email, phone, address, role, created_at } =
