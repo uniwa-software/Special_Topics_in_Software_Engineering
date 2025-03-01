@@ -37,7 +37,6 @@ app.get("/api/users", async (req, res) => {
     const users = await Users.findAll();
     res.json(users);
   } catch (err) {
-    console.error("Error fetching users:", err);
     res.status(500).json({ error: "Something went wrong" });
   }
 });
@@ -72,7 +71,6 @@ app.post("/api/appointments", async (req, res) => {
       .status(201)
       .json({ message: "Appointment booked successfully", appointment });
   } catch (err) {
-    console.error("Error booking appointment:", err);
     res.status(500).json({ error: "Something went wrong" });
   }
 });
@@ -123,7 +121,6 @@ app.get("/api/appointments/admin",async (req, res) => {
         });
         res.json(formattedAppointments);
       } catch (err) {
-        console.error("Error fetching appointments:", err);
         res.status(500).json({ error: "Something went wrong while fetching appointments" });
       }
 });
@@ -172,7 +169,6 @@ app.post("/api/register", async (req, res) => {
       token,
     });
   } catch (err) {
-    console.error("Error registering user:", err);
     res.status(500).json({ error: "Something went wrong" });
   }
 });
@@ -211,7 +207,6 @@ app.post("/api/login", async (req, res) => {
       token,
     });
   } catch (err) {
-    console.error("Error logging in:", err);
     res.status(500).json({ error: "Something went wrong" });
   }
 });

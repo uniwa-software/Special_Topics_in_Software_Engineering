@@ -21,7 +21,10 @@ export const actions = {
             if (!response.ok) {
                 const errorData = await response.json();
                 console.log(errorData)
-                return fail(400, {incorrect: true });
+                return fail(400, {
+                    success: false,
+                    message : errorData 
+                });
             }
             
             const responseData = await response.json();
